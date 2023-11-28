@@ -6,5 +6,6 @@ import java.util.Date;
 // в нашем случае наблюдателем является презентер
 public interface ViewObserver {
     void onReservationTable(Date orderDate, int orderTable, String name);
+    void onChangeReservationTable(int oldReservationNo);
 
 }

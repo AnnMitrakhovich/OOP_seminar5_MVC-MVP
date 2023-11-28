@@ -45,4 +45,12 @@ public class BookingView implements View {
             observer.onReservationTable(orderDate,orderTable,name);
         }
     }
+    public void changeReservationTable(int oldReservationNo, Date orderDate, int orderTable, String name) {
+// новый метод по отмене предыдущего бронирования и создание нового бронирования
+        System.out.println("Пользователь отменяет бронирование");
+        for (ViewObserver observer: observers) {
+            observer.onChangeReservationTable(oldReservationNo);
+            observer.onReservationTable(orderDate,orderTable, name);
+        }
+    }
 }

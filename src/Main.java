@@ -13,7 +13,8 @@ public class Main {
         BookingPresenter presenter = new BookingPresenter(tableModel, bookingView);
         presenter.updateTablesUI();
         bookingView.reservationTable(new Date(), 3, "Anna");
-        bookingView.reservationTable(new Date(), 9, "Oleg");
+        bookingView.reservationTable(new Date(), 1, "Oleg");
+        bookingView.changeReservationTable(1001, new Date(), 4, "Gleb");
 
     }
 }

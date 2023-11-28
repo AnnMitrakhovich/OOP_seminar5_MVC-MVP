@@ -5,7 +5,6 @@ import Presenter.Model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-
 public class TableModel implements Model {
     private Collection<Table> tables;
     @Override
@@ -20,10 +19,9 @@ public class TableModel implements Model {
         }
         return tables;
     }
-
     @Override
     public int reservationTable(Date reservationDate, int numberTable, String name) {
-        for (Table table: loadTables()) {
+        for (Table table : loadTables()) {
             if (table.getNumber() == numberTable) {
                 Reservation reservation = new Reservation(table, reservationDate, name);
                 table.getReservations().add(reservation);
@@ -32,4 +30,19 @@ public class TableModel implements Model {
         }
         throw new RuntimeException("Некорректный номер столика");
     }
+
+    @Override
+    public void deliteReservation(int oldReservationNo) {
+        for (Table table : loadTables()) {
+            for (Reservation reservation : table.getReservations()) {
+                if (reservation.getId() == oldReservationNo) {
+                    table.getReservations().remove(reservation);
+                    System.out.println("Бронь отменена");
+
+                }
+            }
+        }
+        throw new RuntimeException("Неверный номер бронирования");
+    }
+
 }
